@@ -1,0 +1,3 @@
+include ':SimpleLoadingbar'
+include ':app'
+rootProject.name = "SimpleLoadingBar"
