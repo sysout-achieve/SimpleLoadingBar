@@ -52,7 +52,9 @@ LoadingBar.init()
   .on(MainActivity.this);
 ``` 
 
-
+<br>
+<hr>
+<br>
 앱 실행 중 마지막으로 설정한 options 데이터가 저장되며 LoadingBar.init().on()만으로 같은 옵션으로 설정된 LoadingBar를 화면에 출력합니다.
 
 LoadingBar는 거의 모든 프로젝트마다 만들어야하는데 매번 로딩바를 생성, 관리해야하는 번거로움을 해소하기 위해 만들게 되었습니다.
