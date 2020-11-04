@@ -52,6 +52,11 @@ LoadingBar.init()
   .on(MainActivity.this);
 ``` 
 
+example : 화면
+
+![샘플](https://github.com/sysout-achieve/SimpleLoadingBar/blob/master/loadingbar_sample1.gif)
+![샘플](https://github.com/sysout-achieve/SimpleLoadingBar/blob/master/loadingbar_sample2.gif)
+
 <br>
 <hr>
 <br>
