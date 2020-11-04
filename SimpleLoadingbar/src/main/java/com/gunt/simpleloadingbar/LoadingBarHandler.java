@@ -23,7 +23,7 @@ import androidx.appcompat.app.AppCompatDialog;
 
 public class LoadingBarHandler extends AppCompatActivity {
 
-    public AppCompatDialog progressDialog;
+    public AppCompatDialog appCompatDialog;
     private LoadingBarOption loadingBarOption;
 
     public LoadingBarHandler() {
@@ -35,25 +35,18 @@ public class LoadingBarHandler extends AppCompatActivity {
             return;
         }
 
+        appCompatDialog = new AppCompatDialog(activity);
+        appCompatDialog.setCancelable(loadingBarOption.isCancelable());
+        appCompatDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        appCompatDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        appCompatDialog.getWindow().setFlags(loadingBarOption.getBackBrightness().getBackScreenOpt(), loadingBarOption.getBackBrightness().getBackScreenOpt());
+        appCompatDialog.setContentView(R.layout.progress_loading);
+        appCompatDialog.show();
 
-        progressDialog = new AppCompatDialog(activity);
-        progressDialog.setCancelable(loadingBarOption.isCancelable());
-        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        progressDialog.getWindow().setFlags(loadingBarOption.getBackBrightness().getBackScreenOpt(), MODE_PRIVATE);
-        if (loadingBarOption.getBackBrightness() == LoadingBarOption.BackBrightness.KEEP_SCREEN_ON) {
-            progressDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-            progressDialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, MODE_PRIVATE);
-        } else {
-            progressDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            progressDialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND, MODE_PRIVATE);
-        }
-        progressDialog.setContentView(R.layout.progress_loading);
-        progressDialog.show();
-
-        final ProgressBar progressBar = progressDialog.findViewById(R.id.progressBar);
+        final ProgressBar progressBar = appCompatDialog.findViewById(R.id.progressBar);
         progressBar.setIndeterminate(true);
         progressBar.getIndeterminateDrawable().setColorFilter(loadingBarOption.getColor(), PorterDuff.Mode.MULTIPLY);
-        TextView tv = progressDialog.findViewById(R.id.tv_progress_message);
+        TextView tv = appCompatDialog.findViewById(R.id.tv_progress_message);
         if (!TextUtils.isEmpty(message)) {
             tv.setText(message);
         }
@@ -62,8 +55,8 @@ public class LoadingBarHandler extends AppCompatActivity {
 
     public void progressOFF() {
         try {
-            if (progressDialog != null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
+            if (appCompatDialog != null && appCompatDialog.isShowing()) {
+                appCompatDialog.dismiss();
             }
         } catch (Exception e) {
             e.printStackTrace();

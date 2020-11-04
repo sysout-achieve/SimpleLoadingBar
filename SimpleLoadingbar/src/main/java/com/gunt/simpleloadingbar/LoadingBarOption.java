@@ -9,7 +9,6 @@
 
 package com.gunt.simpleloadingbar;
 
-
 import android.graphics.Color;
 import android.view.WindowManager;
 
@@ -63,4 +62,5 @@ public class LoadingBarOption {
     public void setCancelable(boolean cancelable) {
         isCancelable = cancelable;
     }
+
 }
