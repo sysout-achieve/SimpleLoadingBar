@@ -54,8 +54,8 @@ LoadingBar.init()
 
 example : 화면
 
-![샘플](https://github.com/sysout-achieve/SimpleLoadingBar/blob/master/loadingbar_sample1.gif)
-![샘플](https://github.com/sysout-achieve/SimpleLoadingBar/blob/master/loadingbar_sample2.gif)
+![샘플](https://github.com/sysout-achieve/SimpleLoadingBar/blob/master/loadingbar_sample00.gif)
+![샘플](https://github.com/sysout-achieve/SimpleLoadingBar/blob/master/loadingbar_sample01.gif)
 
 <br>
 <hr>
